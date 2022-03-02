@@ -15,7 +15,7 @@
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!--end-->
-    <title>React</title>
+    <title>React :DDD</title>
   </head>
   <body>
     <div id="app"></div>
@@ -24,22 +24,47 @@
     //render stuff inside 'app' div. Always make sure to have text/babel
       class App extends React.Component {
         state = {
-            name: 'Tet',
+            name: 'Chris',
             age: '21'
         }
-        handleClick(e) {
-            console.log(e.target); //displays on click
+        handleClick = (e) => {
+            //console.log(e.target); //displays on click
+            this.setState({ //change state value
+              name: 'Big Yoshi',
+              age: '999'
+            })
+            console.log(this.state) //try display state content
         }
-        handleMouseOver(e) {
-            console.log(e.target) //displays on hover
+        handleMouseOver = (e) => {
+            console.log(e.target, e.pageX) //displays on hover
+        }
+        handleCopy = (e) => {
+            console.log('Rat Bastard');
+        }
+
+        handleChange = (e) => {
+          this.setState({
+            name: e.target.value
+          })
+        }
+        handleSubmit = (e) =>{
+          e.preventDefault();
+          console.log('form here :D', this.state.name)
         }
         render() {
           return (//call state data. onclick button effect  
             <div className="app-content">
               <h1>Watap!</h1>
               <p> My name { this.state.name } age { this.state.age }</p>
+              
               <button onClick={ this.handleClick }>Click Me!</button>
               <button onMouseOver={ this.handleMouseOver }>Hover Me!</button>
+              <p onCopy={ this.handleCopy }> Copy this Rat</p>
+
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" onChange={this.handleChange}/>
+                <button>Submit</button>
+              </form>
             </div>
           )
         }

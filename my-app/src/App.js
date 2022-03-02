@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Ninjas from "./Ninjas"; //nested ninjas component
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    ninjas: [
+      { name: "Big Yoshi", age: 999, belt: "black", id: 1 },
+      { name: "Medium Yoshi", age: 888, belt: "black", id: 2 },
+      { name: "Small Yoshi", age: 777, belt: "black", id: 3 },
+    ],
+  };
+  render() {
+    return (
+      <div className="App">
+        <h1>Watap!</h1>
+        <p>Elo! :D</p>
+        <Ninjas ninjas={this.state.ninjas} />
+        {/* added Ninjas component */}
+      </div>
+    );
+  }
 }
 
 export default App;

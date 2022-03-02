@@ -19,54 +19,59 @@
   </head>
   <body>
     <div id="app"></div>
-    
-    <script type="text/babel"> 
-    //render stuff inside 'app' div. Always make sure to have text/babel
+
+    <script type="text/babel">
+      //render stuff inside 'app' div. Always make sure to have text/babel
       class App extends React.Component {
         state = {
-            name: 'Chris',
-            age: '21'
-        }
+          name: "Chris",
+          age: "21",
+        };
         handleClick = (e) => {
-            //console.log(e.target); //displays on click
-            this.setState({ //change state value
-              name: 'Big Yoshi',
-              age: '999'
-            })
-            console.log(this.state) //try display state content
-        }
+          //console.log(e.target); //displays on click
+          this.setState({
+            //change state value
+            name: "Big Yoshi",
+            age: "999",
+          });
+          console.log(this.state); //try display state content
+        };
         handleMouseOver = (e) => {
-            console.log(e.target, e.pageX) //displays on hover
-        }
+          console.log(e.target, e.pageX); //displays on hover
+        };
         handleCopy = (e) => {
-            console.log('Rat Bastard');
-        }
+          console.log("Rat Bastard");
+        };
 
         handleChange = (e) => {
           this.setState({
-            name: e.target.value
-          })
-        }
-        handleSubmit = (e) =>{
+            name: e.target.value,
+          });
+        };
+        handleSubmit = (e) => {
           e.preventDefault();
-          console.log('form here :D', this.state.name)
-        }
+          console.log("form here :D", this.state.name);
+        };
         render() {
-          return (//call state data. onclick button effect  
+          return (
+            //call state data. onclick button effect
             <div className="app-content">
               <h1>Watap!</h1>
-              <p> My name { this.state.name } age { this.state.age }</p>
-              
-              <button onClick={ this.handleClick }>Click Me!</button>
-              <button onMouseOver={ this.handleMouseOver }>Hover Me!</button>
-              <p onCopy={ this.handleCopy }> Copy this Rat</p>
+              <p>
+                {" "}
+                My name {this.state.name} age {this.state.age}
+              </p>
+
+              <button onClick={this.handleClick}>Click Me!</button>
+              <button onMouseOver={this.handleMouseOver}>Hover Me!</button>
+              <p onCopy={this.handleCopy}> Copy this Rat</p>
 
               <form onSubmit={this.handleSubmit}>
-                <input type="text" onChange={this.handleChange}/>
+                <input type="text" onChange={this.handleChange} />
                 <button>Submit</button>
               </form>
             </div>
-          )
+          );
         }
       }
 

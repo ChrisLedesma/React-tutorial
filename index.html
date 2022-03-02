@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Need these scripts for every React proj-->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!--end-->
+    <title>React</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    
+    <script type="text/babel"> 
+    //render stuff inside 'app' div. Always make sure to have text/babel
+      class App extends React.Component {
+        state = {
+            name: 'Tet',
+            age: '21'
+        }
+        handleClick(e) {
+            console.log(e.target); //displays on click
+        }
+        handleMouseOver(e) {
+            console.log(e.target) //displays on hover
+        }
+        render() {
+          return (//call state data. onclick button effect  
+            <div className="app-content">
+              <h1>Watap!</h1>
+              <p> My name { this.state.name } age { this.state.age }</p>
+              <button onClick={ this.handleClick }>Click Me!</button>
+              <button onMouseOver={ this.handleMouseOver }>Hover Me!</button>
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

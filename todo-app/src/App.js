@@ -19,12 +19,22 @@ class App extends Component {
       todos,
     });
   };
+  addTodo = (todo) => {
+    //generate random id
+    todo.id = Math.random();
+    //add new data to current 
+    let todos = [...this.state.todos, todo];
+    //set updated array
+    this.setState({
+      todos,
+    });
+  }
   render() {
     return (
       <div className="todo-app container">
         <h1 className="center pink-text">Todo's</h1>
         <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
-        <AddTodo />
+        <AddTodo  addTodo={this.addTodo} />
       </div>
     );
   }

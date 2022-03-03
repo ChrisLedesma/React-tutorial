@@ -16,7 +16,7 @@ const Todos = ({ todos, deleteTodo }) => {
   ) : (
     <p className="center">Nothing to do!</p>
   );
-  return <div class="todos collection">{todoList}</div>;
+  return <div className="todos collection">{todoList}</div>;
 };
 
 export default Todos;
